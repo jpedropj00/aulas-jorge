@@ -119,7 +119,7 @@ tabuleiro = add_tabuleiro(tabuleiro, numLinha,numCol)
 print(f'Tabuleiro atualizado:')
 sleep(5)
 for linha in tabuleiro:
-    print(' '. join(linha))
+    print(' '.join(linha))
 print('Começando o jogo...')
 linhaInicial = int(input('Digite a linha inicial do tiro: '))
 colInicial = int(input('Digite a coluna inicialdo tiro: '))
