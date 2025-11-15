@@ -1,3 +1,4 @@
+from time import sleep
 def add_tabuleiro(tabuleiro, numLinha, numCol):
     numInimigos = int(input('Digite o número de inimigos: '))
     for i in range(numInimigos):
@@ -112,3 +113,26 @@ for i in range(numLinha):
         linha.append('.')
     tabuleiro.append(linha)
 print(tabuleiro)
+
+# Adicionando inimigos, torres e paredes ao jogo
+tabuleiro = add_tabuleiro(tabuleiro, numLinha,numCol)
+print(f'Tabuleiro atualizado:')
+sleep(5)
+for linha in tabuleiro:
+    print(' '. join(linha))
+print('Começando o jogo...')
+linhaInicial = int(input('Digite a linha inicial do tiro: '))
+colInicial = int(input('Digite a coluna inicialdo tiro: '))
+print('Direção do tiro:\n[1]Cima\n[2]Baixo\n[3]Esquerda\n[4]Direita')
+while True:
+    escolhaDirecao = int(input('Escolha a direção do tiro: '))
+    if escolhaDirecao < 1 or escolhaDirecao > 4:
+        print('Direção inválida, tente novamente.')
+    else:
+        break
+resultado = simularTiro(linhaInicial, colInicial,escolhaDirecao, tabuleiro, numLinha, numCol)
+print('Tabuleiro após o tiro: ')
+for linha in tabuleiro:
+    print(' '.join(linha))
+print(f"Total de inimigos atingidos: {resultado['ataques']}")
+print(f'Total de torres destruídas: {resultado['torres_destruidas']}')
