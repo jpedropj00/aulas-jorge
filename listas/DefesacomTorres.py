@@ -1,18 +1,42 @@
 def add_tabuleiro(tabuleiro, numLinha, numCol):
     numInimigos = int(input('Digite o número de inimigos: '))
-    numTorres = int(input('Digite o número de torres: '))
     for i in range(numInimigos):
         while True:
             linhaInimigo = int(input(f'Digite a linha: '))
             colInimigo = int(input('Digite a coluna: '))
             if linhaInimigo < 0 or linhaInimigo >= numLinha or colInimigo < 0 or colInimigo >= numCol:
                 print('Posição invalida, tente novamente')
-            if tabuleiro[linhaInimigo][colInimigo] != '.':
+            elif tabuleiro[linhaInimigo][colInimigo] != '.':
                 print('Posição já ocupada, tente novamente')
             else:
                 tabuleiro[linhaInimigo][colInimigo] = 'n'
                 break
-    for j in range
+    
+    numTorres = int(input('Digite o número de torres: '))
+
+    for j in range(numTorres):
+        while True:
+            linhaTorre = int(input('Digite a linha: '))
+            colTorre = int(input('Digite a coluna: '))
+            if linhaTorre < 0 or linhaTorre >= numLinha or colTorre < 0 or colTorre >= numCol:
+                print('Posição inválida')
+            if tabuleiro[linhaTorre][colTorre] != '.':
+                print('Posição já ocupada')
+            else:
+                tabuleiro[linhaTorre][colTorre] = 't'
+                break
+    numParedes = int(input('Digite o número de paredes: '))
+    for k in range(numParedes):
+        while True:
+            linhaParede = int(input('Digite a linha: '))
+            colParede = int(input('Digite a coluna: '))
+            if linhaParede < 0 or linhaParede >= numLinha or colParede < 0 or colParede >= numCol:
+                print('Posição inválida')
+            elif tabuleiro[linhaParede][colParede] != '.':
+                print('Posição já ocupada')
+            else:
+                tabuleiro[linhaParede][colParede] = '#'
+    return tabuleiro
 
                 
                 
