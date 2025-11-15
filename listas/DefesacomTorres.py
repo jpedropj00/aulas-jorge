@@ -112,7 +112,9 @@ for i in range(numLinha):
     for j in range(numCol):
         linha.append('.')
     tabuleiro.append(linha)
-print(tabuleiro)
+for linha in tabuleiro:
+    print(''.join(linha))
+
 
 # Adicionando inimigos, torres e paredes ao jogo
 tabuleiro = add_tabuleiro(tabuleiro, numLinha,numCol)
