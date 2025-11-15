@@ -20,7 +20,7 @@ def add_tabuleiro(tabuleiro, numLinha, numCol):
             colTorre = int(input('Digite a coluna: '))
             if linhaTorre < 0 or linhaTorre >= numLinha or colTorre < 0 or colTorre >= numCol:
                 print('Posição inválida')
-            if tabuleiro[linhaTorre][colTorre] != '.':
+            elif tabuleiro[linhaTorre][colTorre] != '.':
                 print('Posição já ocupada')
             else:
                 tabuleiro[linhaTorre][colTorre] = 't'
@@ -36,6 +36,7 @@ def add_tabuleiro(tabuleiro, numLinha, numCol):
                 print('Posição já ocupada')
             else:
                 tabuleiro[linhaParede][colParede] = '#'
+                break
     return tabuleiro
 
                 
@@ -76,7 +77,7 @@ def simularTiro(linhaInicial, colInicial, direcao, tabuleiro, numLinha, numCol):
             pass
         elif localization == 'n':
             contAtaque += 1
-            tabuleiro[linhaAtual][colAtual] = 'x'
+            tabuleiro[linhaAtual][colAtual] = '.'
             break
         elif localization == 't':
             contTorresDestruidas += 1
